@@ -2,6 +2,7 @@ import requests
 from datetime import datetime, timedelta, timezone
 import csv
 import os
+import pandas as pd
 
 API_KEY = "fe5f5f129ab4477353b27aa8c72ba2d1"  
 CITY = "Nairobi"  # Changeable to any city
@@ -35,3 +36,10 @@ if data.get("main"):
 
 else:
     print("Error fetching weather data. Check city name or API key.")
+
+df = pd.read_csv("weather_data.csv", encoding="ISO-8859-1")
+df = df.drop_duplicates()
+df = df.dropna()
+df.to_csv("weather_data_clean.csv", index=False)
+print("Cleaned data saved to weather_data_clean.csv")
+print(df.head())

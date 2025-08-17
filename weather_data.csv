@@ -1,7 +1,4 @@
-Date/Time,City,Description,Temperature (°C),Feels Like (°C)
-2025-08-13 00:33:15,Paris,clear sky,23.91,23.92
-2025-08-13 01:33:26,Nairobi,overcast clouds,16.11,15.66
-2025-08-13 01:38:39,Nairobi,overcast clouds,16.11,15.66
-2025-08-16 05:25:57,Nairobi,overcast clouds,16.2,15.89
-2025-08-16 05:26:13,Nairobi,overcast clouds,16.2,15.89
-2025-08-16 05:27:44,Nairobi,overcast clouds,16.2,15.89
+Date/Time,City,Description,Temperature (Â°C),Feels Like (Â°C)
+2025-08-17 05:16:41,Paris,clear sky,15.68,15.42
+2025-08-17 05:19:31,Paris,clear sky,15.52,15.24
+2025-08-17 05:20:30,Paris,clear sky,15.52,15.24

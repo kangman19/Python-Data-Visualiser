@@ -4,9 +4,10 @@ import csv
 import os
 import pandas as pd
 import matplotlib.pyplot as plt
+import seaborn as sns
 
 API_KEY = "fe5f5f129ab4477353b27aa8c72ba2d1"  
-CITY = "Paris"  # Changeable to any city
+CITY = "Madrid"  # Changeable to any city
 URL = f"http://api.openweathermap.org/data/2.5/weather?q={CITY}&appid={API_KEY}&units=metric"
 
 
@@ -56,4 +57,21 @@ plt.ylabel("Temperature (°C)")
 plt.xticks(rotation=45)
 plt.legend()
 plt.tight_layout()
+plt.show()
+
+#Weather condition frequency bar chart
+plt.figure(figsize=(10,5))
+desc_counts = df["Description"].value_counts()
+desc_counts.plot(kind="bar", figsize=(10,5), title="Weather Condition Frequency")
+plt.ylabel("Count")
+plt.show()
+
+#Heatmap of average temperature by hour and city
+sns.set_theme(style="whitegrid")
+df["Date/Time"] = pd.to_datetime(df["Date/Time"], errors="coerce")
+df["Hour"] = df["Date/Time"].dt.hour
+pivot = df.pivot_table(index="Hour", columns="City", values="Temperature (°C)", aggfunc="mean")
+plt.figure(figsize=(12,6))
+sns.heatmap(pivot, cmap="coolwarm", annot=True, fmt=".1f")
+plt.title("Average Temperature by Hour and City")
 plt.show()
